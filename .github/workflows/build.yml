@@ -121,7 +121,11 @@ jobs:
           CONFIG_BTRFS_FS_POSIX_ACL=y
           CONFIG_BLK_DEV_DM=y
           CONFIG_DM_THIN_PROVISIONING=y
-          CONFIG_OVERLAY_FS=y" >> arch/arm64/configs/${{env.KERNEL_DEFCONFIG}}
+          CONFIG_OVERLAY_FS=y
+          CONFIG_CGROUP_HUGETLB=y
+          CONFIG_CFS_BANDWIDTH=y
+          CONFIG_BRIDGE_VLAN_FILTERING=y
+          CONFIG_IPVLAN" >> arch/arm64/configs/${{env.KERNEL_DEFCONFIG}}
           sudo cp -r ../Tools/file security/selinux/hooks.c
           curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s ${{env.KERNELSU_TAG}}
           make O="$output_dir" ${{env.KERNEL_DEFCONFIG}}
