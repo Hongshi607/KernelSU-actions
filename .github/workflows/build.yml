@@ -36,7 +36,7 @@ jobs:
          
       - name: 打入lxc补丁(Setup LXC_PATCH)
         run: |
-         
+         cd android-kernel
          wget https://github.com/wu17481748/lxc-docker/releases/download/lxc/lxc.patch
          patch -p0 < lxc.patch
          cd ..
