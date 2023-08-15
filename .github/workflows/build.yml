@@ -33,13 +33,14 @@ jobs:
          chmod 777 LXC-DOCKER-OPEN-CONFIG.sh
          ./LXC-DOCKER-OPEN-CONFIG.sh android-kernel/arch/arm64/configs/enchilada_defconfig -w
          cd ..
-         
-      - name: 打入lxc补丁(Setup LXC_PATCH)
+
+      - name: 关闭ANDROID_PARANOID_NETWORK配置(Setup CLOSE ANDROID_PARANOID_NETWORK)
+        
         run: |
-         cd android-kernel
-         wget https://github.com/wu17481748/lxc-docker/releases/download/lxc/lxc.patch
-         patch -p0 < lxc.patch
-         cd ..
+         sed -i '/CONFIG_ANDROID_PARANOID_NETWORK/d' android-kernel/arch/arm64/configs/enchilada_defconfig
+         echo "# CONFIG_ANDROID_PARANOID_NETWORK is not set" >> android-kernel/arch/arm64/configs/enchilada_defconfig
+         
+      
          
       - name: Compiling Kernel
         run: |
