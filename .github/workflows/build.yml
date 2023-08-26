@@ -26,15 +26,7 @@ jobs:
           git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b android-10.0.0_r47 --depth=1 --single-branch --no-tags ~/toolchains/aarch64-linux-android-4.9
           git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 -b android-10.0.0_r47 --depth=1 --single-branch --no-tags ~/toolchains/arm-linux-androideabi-4.9
       
-      
-
-      - name: 关闭ANDROID_PARANOID_NETWORK配置(Setup CLOSE ANDROID_PARANOID_NETWORK)
-        
-        run: |
-         sed -i '/CONFIG_ANDROID_PARANOID_NETWORK/d' android-kernel/arch/arm64/configs/enchilada_defconfig
-         echo "# CONFIG_ANDROID_PARANOID_NETWORK is not set" >> android-kernel/arch/arm64/configs/enchilada_defconfig
-         
-      
+     
          
       - name: Compiling Kernel
         run: |
