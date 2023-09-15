@@ -31,8 +31,8 @@ jobs:
       - name: 关闭ANDROID_PARANOID_NETWORK配置(Setup CLOSE ANDROID_PARANOID_NETWORK)
         
         run: |
-         sed -i '/CONFIG_ANDROID_PARANOID_NETWORK/d' android-kernel/arch/arm64/configs/gki_defconfig
-         echo "# CONFIG_ANDROID_PARANOID_NETWORK is not set" >> android-kernel/arch/arm64/configs/gki_defconfig
+         sed -i '/CONFIG_ANDROID_PARANOID_NETWORK/d' android-kernel/arch/arm64/configs/enchilada_defconfig
+         echo "# CONFIG_ANDROID_PARANOID_NETWORK is not set" >> android-kernel/arch/arm64/configs/enchilada_defconfig
          
       
          
