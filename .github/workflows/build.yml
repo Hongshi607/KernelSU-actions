@@ -50,6 +50,9 @@ jobs:
           output_dir=out
           pushd android-kernel
           echo "CONFIG_NAMESPACES=y
+          CONFIG_BINFMT_MISC=y
+          CONFIG_BINFMT_ELF=y
+          CONFIG_BINFMT_SCRIPT=y
           CONFIG_MULTIUSER=y
           CONFIG_NET=y
           CONFIG_NET_NS=y
